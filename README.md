@@ -1,2 +1,2 @@
 # Project2
-SQL
+Working on project to use Django and manipulate a SQLite database
