@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <br>
+    {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+
+        <h2>CLOSED LISTINGS</h2>
+                    {% for product in products %}
+                        <br>
+                                <h4><strong>{{product.title}}</strong></h4>
+                                {% if product.winner == request.user.username %}
+                                    <p>CONGRATULATIONS! You Win <br> </p>
+                                {% endif %}
+                                <p>Seller : {{product.owner}} <br> </p>
+                                <p>Winner : {{product.winner}} <br> </p>
+                                <p>{{product.winprice}}$ <br> </p>
+                    {% endfor %}
+{% endblock %}

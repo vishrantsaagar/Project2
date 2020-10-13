@@ -1,0 +1,16 @@
+  
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <br>
+        <h2><b>CATEGORIES</b></h2>
+        <p>Select a Category to view Listings in that category.</p>
+                <ul>
+                    <a href="{% url 'category' 'fashion' %}"><li> Fashion</li></a>
+                    <a href="{% url 'category' 'tools' %}"><li></i> Tools</li></a>
+                    <a href="{% url 'category' 'toys' %}"><li></i> Toys</li></a>
+                    <a href="{% url 'category' 'electronics' %}"><li></i> Electronics</li></a>
+                    <a href="{% url 'category' 'accessories' %}"><li></i> Accessories</li></a>
+                    <a href="{% url 'category' 'books' %}"><li></i> Books</li></a>
+                </ul>
+{% endblock %}

@@ -1,0 +1,35 @@
+  
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+        <h4>YOUR WATCHLIST</h4>
+        {% if present %}
+            {% for item in product_list %}
+                    <a href="{% url 'viewlisting' item.id %}"><h5>{{item.title}}</h5></a>
+                        Current Bid : ${{item.starting_bid}}
+            {% endfor %}
+        {% else %}
+                <br> <br> 
+                <p class="lead">No Listings Found</p> 
+            </div>
+        {% endif %}
+
+        <br><br>
+        <h3>LISTINGS YOU WON:</h3>
+                {% if not products %}
+                    You did not win any Listings
+                {% else %}
+                    {% for product in products %}
+                        <br>
+                        <div class="card card-cascade" >
+                            <div class="card-body card-body-cascade text-center">
+                                <h4 class="card-title"><strong>{{product.title}}</strong></h4>
+                                <p class="font-weight-bold">CONGRATULATIONS!!! You Won <br> </p>
+                                <p class="font-weight-bold">Seller : {{product.owner}} <br> </p>
+                                <p class="font-weight-bold">Winner : {{product.winner}} <br> </p>
+                                <p class="font-weight-bold">{{product.winprice}}$ <br> </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+{% endblock %}

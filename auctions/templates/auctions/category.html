@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<br>
+    {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+        <h2>ACTIVE LISTINGS</h2>
+        <p>These are the Active Listings available in the {{categ}} category.</p>
+        <br>
+                    {% for product in products %}
+                                <h4><b><a href="{% url 'viewlisting' product.id %}">{{product.title}}</a></b></h4>
+                                Category: {{product.category}}<br>
+                                Description: {{product.description}} <br>
+                                Bid: ${{product.starting_bid}} <br>
+                                Date created: {{product.created_at}}
+                    {% endfor %}
+                {% endif %}
+{% endblock %}
